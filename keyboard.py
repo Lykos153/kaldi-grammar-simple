@@ -50,7 +50,7 @@ def cancel_and_sleep(text=None, text2=None):
 specialCharMap = {
     "(bar|vertical bar|pipe)": "|",
     "(dash|minus|hyphen)": "-",
-    "dit": ".",
+    "(dit|dot|period)": ".",
     "comma": ",",
     "backslash": "\\",
     "underscore": "_",
@@ -69,10 +69,11 @@ specialCharMap = {
     "plus": "+",
     "space": " ",
 
-    "bang": "!",
-    "question": "?",
-    "caret": "^",
+    "(bang|exclamation mark)": "!",
+    "question [mark]": "?",
+    "(caret|hat)": "^",
     # 'apostrophe': Key('apostrophe'),
+    'backtick': Key('`'),
     # 'tilde': Key('tilde'),
 }
 
