@@ -50,7 +50,7 @@ def cancel_and_sleep(text=None, text2=None):
 specialCharMap = {
     "(bar|vertical bar|pipe)": "|",
     "(dash|minus|hyphen)": "-",
-    "dit": ".",
+    "(dit|dot|period)": ".",
     "comma": ",",
     "backslash": "\\",
     "underscore": "_",
@@ -68,12 +68,11 @@ specialCharMap = {
     "equal": "=",
     "plus": "+",
     "space": " ",
-
-    "bang": "!",
-    "question": "?",
-    "caret": "^",
-    # 'apostrophe': Key('apostrophe'),
-    # 'tilde': Key('tilde'),
+    "(bang|exclamation mark)": "!",
+    "question [mark]": "?",
+    "(caret|hat)": "^",
+    'backtick': "`",
+    'tilde': "~",
 }
 
 # Modifiers for the press-command.
