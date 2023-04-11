@@ -77,19 +77,24 @@ class ProgramsRule(MappingRule):
         'open [new] tab': Key('c-t'),
         'close tab': Key('c-w'),
 
-        # Xfce-like desktop environment commands
-        '(desk|desktop) left [<n>]': Key('ca-left:%(n)d'),
-        '(desk|desktop) right [<n>]': Key('ca-right:%(n)d'),
-        '(desk|desktop) up [<n>]': Key('ca-up:%(n)d'),
-        '(desk|desktop) down [<n>]': Key('ca-down:%(n)d'),
-        '(desk|desktop) (top|upper) [<n>]': Key('c-f1, ca-left, ca-right:%(n)d'),
-        '(desk|desktop) (bottom|lower) [<n>]': Key('c-f1, ca-down, ca-left, ca-right:%(n)d'),
-        'switch window [<n>]': Key('a-tab:%(n)d'),
-        'really close window': Key('a-f4'),
+        # desktop environment commands
+
+        #TODO: how to do this better?
+        'workspace one': Key('w-1'),
+        'workspace two': Key('w-2'),
+        'workspace three': Key('w-3'),
+        'workspace four': Key('w-4'),
+        'workspace five': Key('w-5'),
+        'workspace six': Key('w-6'),
+        'workspace seven': Key('w-7)'),
+        'workspace eight': Key('w-8)'),
+        'workspace nine': Key('w-9'),
+
+        'switch window [<n>]': Key('w-tab:%(n)d'),
+        'really close window': Key('ws-q'),
         'maximize window': Key('a-f10'),
         'minimize window': Key('a-f9'),
-        'open new terminal': Key('ca-m'),
-        'copy this image': Key('c-c/10,ca-right/10,c-v/10,ca-left'),
+        'open new terminal': Key('w-enter'),
     }
     extras = [
         Dictation("text"),
