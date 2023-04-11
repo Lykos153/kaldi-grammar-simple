@@ -128,8 +128,8 @@ def main(args):
 
     # Set any configuration options here as keyword arguments.
     engine = get_engine("kaldi",
-        # model_dir='kaldi_model',
-        # tmp_dir='kaldi_model.tmp',  # default for temporary directory
+        model_dir='kaldi_model',
+        tmp_dir='kaldi_model.tmp',  # default for temporary directory
         # vad_aggressiveness=3,  # default aggressiveness of VAD
         # vad_padding_end_ms=300,  # default ms of required silence surrounding VAD
         # vad_complex_padding_end_ms=1200,
