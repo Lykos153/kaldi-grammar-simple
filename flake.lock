@@ -1,0 +1,82 @@
+{
+  "nodes": {
+    "flake-utils": {
+      "inputs": {
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1681202837,
+        "narHash": "sha256-H+Rh19JDwRtpVPAWp64F+rlEtxUWBAQW28eAi3SRSzg=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "cfacdce06f30d2b68473a46042957675eebb3401",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "mynur": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1680789988,
+        "narHash": "sha256-rY5aMDRb1Q9g3X0mLB9gxTxiqIRWf6vdPARjjEP+g6s=",
+        "owner": "Lykos153",
+        "repo": "nur-packages",
+        "rev": "db5171a669078e03f5360072ae40b00d24e72c74",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Lykos153",
+        "repo": "nur-packages",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1669870025,
+        "narHash": "sha256-A2aAZOkKXmOoUxBqijCqx5VOUHGnk8Ov+NJ3VUlWThk=",
+        "owner": "ckiee",
+        "repo": "nixpkgs",
+        "rev": "46c2da3f1e0eba12077c0d25180b4f6000793787",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ckiee",
+        "ref": "kag-unbork",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "mynur": "mynur",
+        "nixpkgs": "nixpkgs"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

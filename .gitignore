@@ -1,3 +1,5 @@
 *.pyc
 kaldi_model*/*
 kaldi_tmp*/*
+.direnv
+result

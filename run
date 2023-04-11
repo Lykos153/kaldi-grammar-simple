@@ -1,3 +1,0 @@
-#!/bin/sh
-# previously python38
-nix-shell -p 'python3.withPackages(ps: with ps; [ dragonfly ])' --run 'python3 kaldi*mod*plus.py'
