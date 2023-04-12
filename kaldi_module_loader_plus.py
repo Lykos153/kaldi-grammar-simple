@@ -119,14 +119,10 @@ class Observer(RecognitionObserver):
 def main(args):
     logging.basicConfig(level=logging.INFO)
 
-    try:
-        path = os.path.dirname(__file__)
-    except NameError:
-        # The "__file__" name is not always available, for example
-        # when this module is run from PythonWin.  In this case we
-        # simply use the current working directory.
-        path = os.getcwd()
-        __file__ = os.path.join(path, "kaldi_module_loader_plus.py")
+    path = os.path.dirname(sys.argv[0])
+    if path in ("", "-c"):
+        print("ERROR: Could not find modules")
+        exit(1)
 
     # Set any configuration options here as keyword arguments.
     engine = get_engine("kaldi",
