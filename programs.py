@@ -86,7 +86,7 @@ class ProgramsRule(MappingRule):
         'workspace four': Key('w-4'),
         'workspace five': Key('w-5'),
         'workspace six': Key('w-6'),
-        'workspace seven': Key('w-7)'),
+        'workspace seven': Key('w-7'),
         'workspace eight': Key('w-8)'),
         'workspace nine': Key('w-9'),
 
