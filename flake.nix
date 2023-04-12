@@ -36,21 +36,20 @@
           '';
         };
         kaldi-ag-with-model = pkgs.writeShellScriptBin "kaldi-ag-with-model" ''
+          set -x
           kaldi_dir=$HOME/.local/share/kaldi-ag-with-model
           mkdir -p "$kaldi_dir" &&
-          chmod -R +rwX "$kaldi_dir" &&
+          chmod -R +rwx "$kaldi_dir" &&
           rm -rf "$kaldi_dir" &&
           mkdir -p "$kaldi_dir" &&
           cd "$kaldi_dir" &&
-          cp -r --reflink=always ${kaldi-model-daanzu-biglm} ./kaldi_model &&
-          chmod -R +w ./kaldi_model &&
-          #cp -rs ${kaldi-model-daanzu-biglm} ./kaldi_model &&
-          #chmod +rwx "./kaldi_model/"
-          #for fn in user_lexicon.txt words.txt align_lexicon.int lexiconp_disambig.txt L_disambig.fst; do
-          #  rm -f "./kaldi_model/$fn"
-          #  cp "${kaldi-model-daanzu-biglm}/$fn" "./kaldi_model/$fn"
-          #  chmod +w "./kaldi_model/$fn"
-          #done &&
+          cp -rs ${kaldi-model-daanzu-biglm} ./kaldi_model &&
+          chmod +rwx "./kaldi_model/"
+          for fn in user_lexicon.txt words.txt align_lexicon.int lexiconp_disambig.txt L_disambig.fst; do
+            rm -f "./kaldi_model/$fn"
+            cp "${kaldi-model-daanzu-biglm}/$fn" "./kaldi_model/$fn"
+            chmod +w "./kaldi_model/$fn"
+          done &&
 
           exec ${kaldi-ag-simple}/bin/kaldi_module_loader_plus.py
         '';
