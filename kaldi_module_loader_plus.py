@@ -39,6 +39,8 @@ if False:
 else:
     setup_log()
 
+def printfl(*args, **kwargs):
+    print(*args, **kwargs, flush=True)
 
 # --------------------------------------------------------------------------
 # User notification / rudimentary UI. MODIFY AS DESIRED
@@ -46,10 +48,10 @@ else:
 # For message in ('sleep', 'wake')
 def notify(message):
     if message == 'sleep':
-        print("Sleeping...")
+        printfl("Sleeping...")
         # get_engine().speak("Sleeping")
     elif message == 'wake':
-        print("Awake...")
+        printfl("Awake...")
         # get_engine().speak("Awake")
 
 
@@ -104,13 +106,13 @@ def load_sleep_wake_grammar(initial_awake):
 
 class Observer(RecognitionObserver):
     def on_begin(self):
-        print("Speech started.")
+        printfl("Speech started.")
 
     def on_recognition(self, words):
-        print("Recognized:", " ".join(words))
+        printfl("Recognized:", " ".join(words))
 
     def on_failure(self):
-        print("Sorry, what was that?")
+        printfl("Sorry, what was that?")
 
 
 # --------------------------------------------------------------------------
@@ -121,7 +123,7 @@ def main(args):
 
     path = os.path.dirname(sys.argv[0])
     if path in ("", "-c"):
-        print("ERROR: Could not find modules")
+        printfl("ERROR: Could not find modules")
         exit(1)
 
     # Set any configuration options here as keyword arguments.
@@ -153,7 +155,7 @@ def main(args):
     engine.prepare_for_recognition()
     try:
         # Loop forever
-        print("Listening...")
+        printfl("Listening...")
         engine.do_recognition()
     except KeyboardInterrupt:
         pass
