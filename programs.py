@@ -48,10 +48,7 @@ class ProgramsRule(MappingRule):
         "vim (switch|toggle|swap)": Key('c-w, c-w'),
         "vim rotate": Key('c-w, r'),
         "vim try that": Key('escape, colon, w, enter, a-tab/5, up, enter'),
-
-        'screen': Key('c-a'),
-        'screen switch': Key('c-a, c-a'),
-        'screen scroll': Key('c-a, lbracket'),
+        #"vim go to line <n>": 
 
         "just execute": Key("backspace, enter"),
         "command (git|get)": Text("git "),
@@ -65,18 +62,31 @@ class ProgramsRule(MappingRule):
         "command (grep|grip)": Text("grep "),
         #"command background": Text("bg "),
         #"command foreground": Text("fg "),
+        'command ranger': Text("ranger "),
 
         # web browser
         'address bar': Key('a-d'),
-        'refresh page': Key('f5'),
-        'really refresh page': Key('s-f5'),
+        'reload page': Key('f5'),
+        'really reload page': Key('s-f5'),
         'go back [<n>]': Key('a-left:%(n)d'),
         'go forward [<n>]': Key('a-right:%(n)d'),
         'previous tab [<n>]': Key('c-pgup:%(n)d'),
         'next tab [<n>]': Key('c-pgdown:%(n)d'),
         'open [new] tab': Key('c-t'),
         'close tab': Key('c-w'),
+        'restore tab': Key('cs-t'),
 
+        # vimium
+        'open link': Key('escape') + Key('f'),
+        'open link in new tab': Key('escape') + Key('F'),
+        'open here': Key('escape') + Key('o'),
+        'open in new tab': Key('escape') + Key('O'),
+        'find in page': Key('c-f'),
+        'next match': Key('f3'),
+        'previous match': Key('s-f3'),
+        'duplicate tab': Key('escape') + Key('y') + Key('t'),
+        'toggle mute': Key('a-m'),
+        'first input': Key('g') + Key('i'),
         # desktop environment commands
 
         #TODO: how to do this better?
@@ -90,10 +100,15 @@ class ProgramsRule(MappingRule):
         'workspace eight': Key('w-8)'),
         'workspace nine': Key('w-9'),
 
-        'switch window [<n>]': Key('w-tab:%(n)d'),
+        'next window [<n>]': Key('w-tab:%(n)d'),
+        'previous window [<n>]': Key('ws-tab:%(n)d'),
         'really close window': Key('ws-q'),
-        'maximize window': Key('a-f10'),
-        'minimize window': Key('a-f9'),
+        'left screen': Key('w-w'),
+        'main screen': Key('w-e'),
+        'right screen': Key('w-r'),
+        'move to left screen': Key('ws-w'),
+        'move to main screen': Key('ws-e'),
+        'move to right screen': Key('ws-r'),
         'open new terminal': Key('w-enter'),
     }
     extras = [
