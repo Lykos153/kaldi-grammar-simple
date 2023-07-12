@@ -15,7 +15,15 @@
           overlays = [ mynur.overlay ];
         };
         
-        my-python = pkgs.python3;
+        my-python = pkgs.python3.override {
+          packageOverrides = (pyfinal: pyprev: {
+            kaldi-active-grammar = pyprev.kaldi-active-grammar.overrideAttrs (old: {
+              patches = old.patches ++ [
+                ./004-fix-alternative-dictation.patch            
+              ];
+            });
+          });
+        };
         python-with-my-packages = my-python.withPackages (p: with p; [
           dragonfly
           kaldi-active-grammar
