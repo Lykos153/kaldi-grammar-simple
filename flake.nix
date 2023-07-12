@@ -32,6 +32,13 @@
           requests
           pydub
           soundfile
+          # Caster:
+          pillow
+          future
+          mock
+          appdirs
+          # scandir
+          # PySide2
         ]);
         kaldi-ag-simple = pkgs.stdenv.mkDerivation {
           name = "kaldi-ag-simple";

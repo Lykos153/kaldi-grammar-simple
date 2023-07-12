@@ -1,0 +1,3 @@
+[submodule "Caster"]
+	path = Caster
+	url = https://github.com/dictation-toolbox/Caster.git
