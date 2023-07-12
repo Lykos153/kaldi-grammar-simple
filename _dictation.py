@@ -1,4 +1,5 @@
 from dragonfly import *
+from dragonfly.engines.backend_kaldi.dictation import AlternativeDictation as Dictation
 import mode
 
 grammar = Grammar("dictation")

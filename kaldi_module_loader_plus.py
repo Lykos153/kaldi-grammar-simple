@@ -25,6 +25,7 @@ from dragonfly import Grammar, MappingRule, Function, Dictation, FuncContext
 from dragonfly.loader import CommandModuleDirectory
 from dragonfly.log import setup_log
 
+from whisper import whisper_dictation
 
 # --------------------------------------------------------------------------
 # Set up basic logging.
@@ -135,7 +136,7 @@ def main(args):
         # vad_complex_padding_end_ms=1200,
         # input_device_index=None,  # set to an int to choose a non-default microphone
         # auto_add_to_user_lexicon=True,  # set to True to possibly use cloud for pronunciations
-        # cloud_dictation=None,  # set to 'gcloud' to use cloud dictation
+        alternative_dictation=whisper_dictation,
     )
 
     # Call connect() now that the engine configuration is set.

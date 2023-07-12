@@ -28,6 +28,10 @@
           dragonfly
           kaldi-active-grammar
           pkgs.lykos153.python3Packages.g2p-en
+          # whisper
+          requests
+          pydub
+          soundfile
         ]);
         kaldi-ag-simple = pkgs.stdenv.mkDerivation {
           name = "kaldi-ag-simple";
@@ -37,7 +41,7 @@
           ];
           dontUnpack = true;
           installPhase = ''
-            for f in _all.py  _dictation.py  keyboard.py  mode.py  programs.py  tformat.py  words.py; do
+            for f in _all.py  _dictation.py  keyboard.py  mode.py  programs.py  tformat.py  words.py whisper.py; do
               install -Dm644 ${./.}/$f $out/bin/$f
             done
             install -Dm755 ${./.}/kaldi_module_loader_plus.py $out/bin/kaldi_module_loader_plus.py
