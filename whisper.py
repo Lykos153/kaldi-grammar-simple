@@ -23,15 +23,12 @@ requests_log.setLevel(logging.DEBUG)
 requests_log.propagate = True
 
 def whisper_dictation(utterance: bytes , **kwargs):
-    with pathlib.Path("/home/silvio/f").open("wb") as fp:
-        fp.write(utterance)
-    
+    with io.BytesIO(utterance) as raw, io.BytesIO() as encoded:
+        data, sr = soundfile.read(raw, format="RAW", subtype="PCM_16",channels=1, samplerate=16000, dtype="int16")
+        
+        soundfile.write(encoded, data, sr, format="OGG", subtype="VORBIS")
 
-    url = "http://localhost:9000"
-    r = requests.post(f"{url}/asr", params={"task":"transcribe","encode":"true","output":"txt"}, files={"audio_file": utterance})
-    return r.text
+        url = "http://localhost:9000"
+        r = requests.post(f"{url}/asr", params={"task":"transcribe","encode":"true","output":"txt"}, files={"audio_file": encoded.getvalue()})
+        return r.text
 
-
-with pathlib.Path("/home/silvio/f").open("rb") as fp:
-    data, sr = soundfile.read(fp, format="RAW", subtype="PCM_16",channels=1, samplerate=16000, dtype="int16")
-    soundfile.write("f.opus", data, sr, format="OGG", subtype="OPUS")
